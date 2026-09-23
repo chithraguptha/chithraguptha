@@ -40,3 +40,50 @@ Google Cloud currently says applicants should have a Google Cloud billing accoun
 Use /privacy as the single governing privacy-policy URL and link the same policy inside Manvori. Complete Play Console Data safety declarations to match the implementation, including analytics, crash reporting, authentication, conversations, profile/birth data and third-party AI/service providers.
 
 Before release, replace development OTP behavior with real authentication and add the final legal/support contact.
+
+
+## GitHub Pages (recommended)
+
+The repository includes `.github/workflows/pages.yml` and a `CNAME` for `www.chithraguptha.site`.
+
+1. Merge this PR into `main`.
+2. In GitHub, open **Settings → Pages** for `chithraguptha/chithraguptha`.
+3. Under **Build and deployment**, choose **GitHub Actions**.
+4. After the workflow completes, set the custom domain to `www.chithraguptha.site` if GitHub has not already detected it from the CNAME.
+5. Enable **Enforce HTTPS** once the certificate is available.
+
+### DNS for `chithraguptha.site`
+
+For the apex domain, configure GitHub Pages A records at your DNS provider:
+
+- `@` → `185.199.108.153`
+- `@` → `185.199.109.153`
+- `@` → `185.199.110.153`
+- `@` → `185.199.111.153`
+
+For `www`, create:
+
+- `CNAME` `www` → `chithraguptha.github.io`
+
+GitHub recommends using `www` alongside an apex domain and will handle the corresponding redirect when both are correctly configured. Do not point `www` at the apex domain; point it directly at the GitHub Pages hostname. DNS changes can take time to propagate. citeturn0search0turn0search1
+
+### `.com` domain
+
+Keep `www.chithraguptha.site` as the canonical Pages domain. At the `.com` registrar/DNS provider, configure `www.chithraguptha.com` and `chithraguptha.com` as redirects to `https://www.chithraguptha.site`. Do not add the `.com` domain as another GitHub Pages CNAME unless you specifically want to make it the canonical Pages domain.
+
+### Verify
+
+After DNS propagation:
+
+```bash
+dig www.chithraguptha.site CNAME +short
+dig chithraguptha.site A +short
+```
+
+Then visit:
+
+- https://www.chithraguptha.site/
+- https://www.chithraguptha.site/privacy
+- https://www.chithraguptha.site/terms
+
+GitHub Pages supports HTTPS for correctly configured custom domains; certificate provisioning can take time. citeturn0search3
