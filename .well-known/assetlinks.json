@@ -1,0 +1,12 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.chithraguptha.manvori",
+      "sha256_cert_fingerprints": [
+        "A5:84:CD:2D:6F:DE:32:8C:E7:51:93:6E:DD:D1:AB:99:FA:D2:69:3D:F7:3C:8E:8B:E7:94:44:80:1E:06:64:10"
+      ]
+    }
+  }
+]
